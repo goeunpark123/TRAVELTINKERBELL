@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Travel Essay</title>
+<style>
+	textarea {
+		background-color : rgb(210, 230, 210);
+		overflow : scroll;
+	}
+	
+	#content {
+		position : relative;
+		left : -170px;
+		bottom : 40px;
+		margin-top : 40px;
+	}
+</style>
+<script>
+	function checkDate() {
+		var s = document.getElementById('start').value;
+		var e = document.getElementById('end').value;
+		var sdate = new Date(s);
+		var edate = new Date(e);
+		var diff = edate.getTime() - sdate.getTime();
+		var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+		if (days < 0) {
+			alert('잘못된 입력입니다. 도착일이 출발일보다 빠릅니다.');
+		}
+	}
+	
+	function checkSelection(elem) {
+		if(elem.value==0) {
+			alert('여행지를 선택해주세요');
+			elem.focus();
+			return false;
+		}
+		
+		else {
+			alert('저장되었습니다.');
+			window.close();
+			return true;
+		}
+	}
+</script>
+</head>
+<body>
+	<form id='travelEssay' method="get">
+	<h2 style='font-family : Georgia, Serif; font-size : 40px; margin-top : 20px;'>Travel Essay</h2>
+	<form id='date'>
+	출발 : <input type='date' id='start'>
+	도착 : <input type='date' id='end'>
+	<button onclick='checkDate()'>입력</button>
+	</form>
+	<form id='select'>
+		여행지 : <select id='destination'>
+			<option value='0'>select</option>
+			<option value='1'>Amsterdam</option>
+			<option value='2'>Havana</option>
+			<option value='3'>Paris</option>
+			<option value='4'>Milano</option>
+			<option value='5'>Hong Kong</option>
+			<option value='6'>San Francisco</option>
+	</form>
+	<textarea id='content' name='content' rows='30' cols='60'></textarea><br>
+	<button style='margin-left : 180px; margin-top : 20px;' onclick="checkSelection(document.getElementById('destination'))">저장</button>
+	</form>
+</body>
+</html>

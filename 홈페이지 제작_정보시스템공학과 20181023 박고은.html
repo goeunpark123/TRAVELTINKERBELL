@@ -1,0 +1,329 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>TRAVEL TINKER-BELL</title> 
+		<style>
+			* {
+				background-color : rgb(200, 220, 200);
+			}
+			
+			h1 {
+				font-family : 'Georgia', 'serif';
+				font-size : 60px;
+				margin : 15px;
+				padding-top : 80px;
+				padding-bottom : 0px;
+				text-align : center;
+			}
+			
+			#tinkerbell {
+				float : right;
+				position : relative;
+				right : 210px;
+				bottom : 150px;
+				width : 70px;
+				height : 100px;
+			}
+			
+			nav {
+				font-family : 'Courier New', 'serif';
+				font-size : 20px;
+				clear : both;
+				border-style : solid;
+				border-width : 3px;
+				padding-top : 5px;
+				padding-bottom : 5px;
+				text-align : center;
+			}
+			
+			nav li {
+				display : inline;
+				margin : 0px 60px;
+				text-align : center;
+			}
+			
+			aside {
+				float : right;
+				margin : 20px;
+				padding : 20px;
+				text-align : center;
+			}
+			
+			fieldset {
+				width : 250px;
+				height : 165px;
+				margin : 20px 0px;
+				padding : 10px 10px;
+			}
+			
+			.space {
+				float : left;
+				width : 160px;
+				height : 25px;
+				margin-top : 10px;
+			}
+			
+			#sign-in {
+				float : right;
+				position : relative;
+				bottom : 35px;
+				right : 5px;
+				width : 65px;
+				height : 75px;
+			}
+			
+			.button {
+				width : 250px;
+				height : 50px;
+				margin : 15px 10px;			
+			}
+			
+			#remember {
+				width : 18px;
+				height : 18px;
+				margin : 18px;	
+			}
+
+			h2 {
+				font-family : 'Georgia', 'serif';
+				font-size : 40px;
+				margin-top : 50px;
+				margin-bottom : 20px;
+				margin-left : 60px;
+			}
+			
+			#recommend {
+				margin : 10px 55px;
+				width : 750px;
+				height : 450px;
+			}
+			
+			#next {
+				font-size : 20px;
+				font-color : pink;
+				position : relative;
+				bottom : -20px;
+				right : 470px;
+			}
+			
+			#click {
+				font-family : Georgia, serif;
+				font-size : 20px;
+				font-style : italic;
+				margin-left : 20px;
+			}
+			
+			table {
+				text-align : center;
+				font-family : Georgia, serif;
+				font-size : 30px;
+				font-style : bold;
+				margin-left : 30px;
+			}
+			
+			legend {
+				font-size : 20px;
+			}
+			
+			h4 {
+				font-family : georgia, serif;
+				font-size : 30px;
+				margin-top : 50px;
+				margin-bottom : -30px;
+				
+			}
+			
+			.list {
+				float : right;
+			}
+	
+			#target {
+				font-size : 15px;
+				font-weight : normal;
+				border-style : solid;
+				border-width : 1px;
+				margin-top : 0px;
+				margin-bottom : 10px;
+				width : 280px;
+				height : 300px;
+			}
+		</style>
+		<script>
+			function main() {
+				location.reload();
+			}
+			
+			function asia() {
+				location.replace("홈페이지 제작_정보시스템공학과 20181023 박고은(세부 페이지).html");
+			}
+			
+			function signup() {
+				window.open("SIGN-UP.html");
+			}
+			
+			function essay() {
+				window.open("Travel Essay.html");
+			}
+			
+			function OnMouseIn(con) {
+				con.style.font = 'bold 20px Courier New' ;
+			}
+			
+			function OnMouseOut(con) {
+				con.style.font = "";
+			}
+			
+			var sen;
+			function changeColor() {
+				sen = setInterval(flashText, 500);
+			}
+			
+			function flashText() {
+				var elem = document.getElementById('click');
+				elem.style.color = (elem.style.color == 'black') ? 'rgb(200, 220, 200)' : 'black';
+			}
+			
+			function checkID() {
+				if(document.getElementById('ID').value.length == 0) {
+					alert('아이디를 입력해주세요!');
+					return false;
+				}
+				
+				else if(document.getElementById('ID').value.length >= 5 && ID.value.length <= 8) {
+					return true;
+				}
+				
+				else {
+					alert('5 ~ 8 문자 사이로 입력해주세요!');
+					document.getElementById('ID').value='';
+					return false;
+				}
+				
+				document.getElementById('ID').value='';
+				document.getElementById('ID').focus();
+			}
+			
+			function checkPW() {
+				if(document.getElementById('PW').value.length == 0) {
+					alert('비밀번호를 입력해주세요!');
+					return false;
+				}
+				
+				else if(document.getElementById('PW').value.length >= 5 && document.getElementById('PW').value.length <= 8) {
+					return true;
+				}
+				
+				else {
+					alert('5 ~ 8 문자 사이로 입력해주세요!');
+					document.getElementById('PW').value='';
+					return false;
+				}
+				
+				document.getElementById('PW').value='';
+				document.getElementById('PW').focus();
+			}
+			
+			function check(name) {
+				if("checkID()=true" && "checkPW()=true") {
+					alert(name + '님을 환영합니다!');
+				}
+			}
+			
+			var i = 0;
+			function changeImg() {
+				var des = new Array();
+				des[0] = "London.jpg";
+				des[1] = "Budapest.jpg";
+				des[2] = "Edinburgh.jpg";
+				des[3] = "Amsterdam.jpg";
+				des[4] = "Paris.jpg";
+				des[5] = "Havana.jpg";
+				des[6] = "Vienna.jpg";
+				
+				if(i >= 6) {
+					i = 0;
+				}
+				else {
+					i++;
+				}
+				document.getElementById('recommend').src = des[i];
+			}
+			
+			function flashImg() {
+				setTimeout(changeImg, 5000)
+			}
+			
+			function addToList(text) {
+				if(document.createTextNode && confirm('여행지 목록에 추가하시겠습니까?')) {
+					var node = document.createTextNode(text);
+					document.getElementById('target').appendChild(node);
+				}
+			}
+			
+			function removeList() {
+				document.getElementById('target').innerHTML = "";
+			}
+			
+		</script>
+	</head>
+	<body onload='changeColor()'>
+		<header>
+			<h1 onclick='main()'>TRAVEL TINKER-BELL</h1>
+			<img id='tinkerbell' src='Tinker_Bell.png'>
+		</header>
+		<nav>
+			<ul>
+				<li onmouseover='OnMouseIn(this)' onmouseout='OnMouseOut(this)'>EUROPE</li>
+				<li onmouseover='OnMouseIn(this)' onmouseout='OnMouseOut(this)' onclick='asia()'>ASIA</li>
+				<li onmouseover='OnMouseIn(this)' onmouseout='OnMouseOut(this)'>AFRICA</li>
+				<li onmouseover='OnMouseIn(this)' onmouseout='OnMouseOut(this)'>AMERICA</li>
+				<li onmouseover='OnMouseIn(this)' onmouseout='OnMouseOut(this)'>OCEANIA</li>
+			</ul>
+		</nav>
+		<aside>
+			<fieldset>
+				<legend>SIGN-IN</legend><br>
+				<input class='space' id='ID' type='text' placeholder='USERNAME'><br>
+				<input class='space' id='PW' type='password' placeholder='PASSWORD'><br>
+				<input id='sign-in' type='button' value='SIGN-IN' onclick="checkID(); checkPW();"><br>
+				<input id='remember' type='checkbox'>Remember me
+				<!--정규식-->
+			</fieldset><br>
+			<input class='button' type='button' value='SIGN-UP' onclick='signup()'/><br><!--버튼으로 세부 페이지 열기-->
+			<input class='button' type='button' value='TRAVEL ESSAY' onclick='essay()'/><br><!--버튼으로 세부 페이지 열/저장되었습니다-->
+			<h4>Travel List<h4><!--내용 넘으면 스크롤-->
+			<input class='list' type='button' value='∧'
+				onclick="document.getElementById('target').style.visibility = 'hidden'" />
+			<input class='list' type='button' value='∨'
+				onclick="document.getElementById('target').style.visibility = 'visible'" />
+			<div id='target'><br></div>
+			<button onclick='removeList()'>Remove All</button>
+		</aside>
+		<h2>Recommended Destinations</h2>
+		<img onload='flashImg()', id='recommend' src='London.jpg' width='600' height='350'/><br>
+		<p id='click'>Click the destinations!</p><br>
+		<table>
+			<tr>
+				<th onclick="addToList('Amsterdam ')">Amsterdam</th>
+				<td onclick="addToList('Havana ')">Havana&nbsp;</td>
+				<th onclick="addToList('Paris ')">Paris&nbsp&nbsp;</th>
+				<td onclick="addToList('Milan ')">Milano&nbsp;</td>
+				<td onclick="addToList('Hong Kong ')">Hong Kong&nbsp;</td>
+			</tr>
+			<tr>
+				<td onclick="addToList('San Francisco ')">San Francisco&nbsp;&nbsp;&nbsp;</td>
+				<th onclick="addToList('New York ')">New York&nbsp;&nbsp;</th>
+				<td onclick="addToList('Seoul ')">Seoul&nbsp;</td>
+				<td onclick="addToList('Dubai ')">Dubai&nbsp;</td>
+				<th onclick="addToList('Edinburgh ')">Edinburgh&nbsp;</th>
+			</tr>
+			<tr>
+				<td onclick="addToList('Sydney ')">Sydney&nbsp;</td>
+				<td onclick="addToList('Rome ')">Rome&nbsp;</td>
+				<td onclick="addToList('Berlin ')">Berlin&nbsp;&nbsp;&nbsp;</td>
+				<td onclick="addToList('Los Angeles ')">Los Angeles&nbsp;</td>
+				<th onclick="addToList('Vienna ')">Vienna&nbsp;</th>
+			</tr>
+		</table>
+	</body>
+</html>

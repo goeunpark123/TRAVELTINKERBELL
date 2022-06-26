@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>TRAVEL TINKER-BELL</title><!--asia?-->
+		<style>
+			* {
+				background-color : rgb(200, 220, 200);
+			}
+			
+			h1 {
+				font-family : 'Georgia', 'serif';
+				font-size : 60px;
+				margin : 15px;
+				padding-top : 80px;
+				padding-bottom : 0px;
+				text-align : center;
+			}
+			
+			#tinkerbell {
+				float : right;
+				position : relative;
+				right : 210px;
+				bottom : 150px;
+				width : 70px;
+				height : 100px;
+			}
+			
+			nav {
+				font-family : 'Courier New', 'serif';
+				font-size : 20px;
+				clear : both;
+				border-style : solid;
+				border-width : 3px;
+				padding-top : 5px;
+				padding-bottom : 5px;
+				text-align : center;
+			}
+			
+			nav li {
+				display : inline;
+				margin : 0px 60px;
+				text-align : center;
+			}
+			
+			table {
+				float : left;
+				text-align : left;
+				font-family : 'Georgia', 'serif';
+				font-weight : lighter;
+				font-size : 20px;
+				border-color : black;
+				padding-left : 0px; 
+				width : 220px;
+				height : 550px;
+				margin : 30px 40px 20px 0px;
+			}
+			
+			#clicked {
+				background-color : rgb(150, 170, 150);
+				color : white;
+			}
+			
+			h2 {
+				font-family : 'Georgia', 'serif';
+				font-size : 50px;
+				margin-top : 50px;
+			}
+			
+			#flash {
+				font-family : 'Georgia', 'serif';
+				font-size : 40px;
+				margin-top : 30px;
+			}
+			
+			h4 {
+				font-family : 'Georgia', 'serif';
+				font-size : 20px;
+				margin-top : 90px;
+				margin-bottom : 0px;
+			}
+			
+			#special {
+				position : fixed;
+				bottom : 10px;
+				right : 60px;
+				border-style : solid;
+				border-width : 1px;
+				width : 550px;
+				height : 300px;
+				background-color : white;
+			}
+			
+			#timer {
+				margin-top : 20px;
+				margin-bottom : -10px;
+				margin-right : 10px;
+				background-color : white;
+			}
+			
+			.spot {
+				width : 300px;
+				height : 300px;
+				margin : 10px;
+			}
+			
+			a {
+				float : left;
+				margin-bottom : 100px;
+				margin-top : -100px;
+				margin-left : 20px;
+				color : black;
+				text-decoration : none;
+				font-family : 'Georgia', 'serif';
+				font-size : 30px;
+				font-weight : bold;
+				text-transform : uppercase;
+			}
+		</style>
+		<script>
+			function main() {
+				location.replace("홈페이지 제작_정보시스템공학과 20181023 박고은.html");
+			}
+			
+			function asia() {
+				location.reload();
+			}
+			
+			function OnMouseIn(con) {
+				con.style.font = 'bold 20px Courier New' ;
+			}
+			
+			function OnMouseOut(con) {
+				con.style.font = '';
+			}
+			
+			<!-- function MouseOnList(con) { -->
+				<!-- con.style.font = 'white'; -->
+			<!-- } -->
+			
+			<!-- function MouseOutList(con) { -->
+				<!-- con.style.font = ''; -->
+			<!-- } -->
+			
+			function OnMouseInSpot(spot, i) {
+				var name = new Array();
+				name[0] = '동방명주1.png';
+				name[1] = '루쉰 공원1.png';
+				name[2] = '상하이 디즈니 랜드1.png';
+				name[3] = '상하이 임시 정부1.png';
+				name[4] = '상하이 타워1.png';
+				name[5] = '와이탄1.png';
+				spot.src = name[i];
+			}
+			
+			function OnMouseOutSpot(spot, i) {
+				var image = new Array();
+				image[0] = '동방명주.jpeg';
+				image[1] = '루쉰 공원.jpeg';
+				image[2] = '상하이 디즈니 랜드.jpeg';
+				image[3] = '상하이 임시 정부.jpeg';
+				image[4] = '상하이 타워.jpeg';
+				image[5] = '와이탄.jpg';
+				spot.src = image[i];
+			}
+			
+			function datesUntilNewYear() {
+				var now = new Date();
+				var newYear = new Date('January 1, ' + (now.getFullYear() + 1));
+				var diff = newYear - now;
+				var milliseconds = Math.floor(diff % 1000);
+				diff = diff / 1000;
+				var seconds = Math.floor(diff % 60);
+				diff = diff / 60;
+				var minutes = Math.floor(diff % 60);
+				diff = diff / 60;
+				var hours = Math.floor(diff % 24);
+				diff = diff / 24;
+				var days = Math.floor(diff);
+				var outStr = '내년' + days +' '+ hours + ' '+ minutes;
+				outStr += '분' + seconds + '초';
+				document.getElementById('timer').innerHTML = outStr;
+		
+				setTimeout('datesUntilNewYear()',1000);
+			}
+	
+			datesUntilNewYear();
+			
+			var sen;
+			function changeColor() {
+				sen = setInterval(flashText, 500);
+			}
+			
+			function flashText() {
+				var elem = document.getElementById('flash');
+				elem.style.color = (elem.style.color == 'red') ? 'green' : 'red';
+				elem.style.backgroundColor =
+					(elem.style.backgroundColor == 'yellow') ? 'white' : 'yellow';
+			}
+			
+			function stopTextColor() {
+				clearInterval(sen);
+			}
+		</script>
+	</head>
+	<body onload = 'changeColor()'>
+		<header>
+			<h1 onclick='main()'>TRAVEL TINKER-BELL</h1>
+			<img id='tinkerbell' src='Tinker_Bell.png'>
+		</header>
+		<nav>
+			<ul>
+				<li onmouseover='OnMouseIn(this)' onmouseout='OnMouseOut(this)'>EUROPE</li>
+				<li style='font : bold 20px Courier New' onclick='asia()'>ASIA</li>
+				<li onmouseover='OnMouseIn(this)' onmouseout='OnMouseOut(this)'>AFRICA</li>
+				<li onmouseover='OnMouseIn(this)' onmouseout='OnMouseOut(this)'>AMERICA</li>
+				<li onmouseover='OnMouseIn(this)' onmouseout='OnMouseOut(this)'>OCEANIA</li>
+			</ul>
+		</nav>
+		<table>
+			<tr><th id='clicked' onclick='asia()' style='background-color : black, font-color : white';>Shanghai</th></tr>
+			<tr><td id='city' onmouseover='MouseOnList(this)' onmouseout = 'MouseOutList(this)';>Seoul</td></tr>
+			<tr><td id='city' onmouseover='MouseOnList(this)' onmouseout = 'MouseOutList(this)';>Jeju</td></tr>
+			<tr><td id='city' onmouseover='MouseOnList(this)' onmouseout = 'MouseOutList(this)';>Singapore</td></tr>
+			<tr><td id='city' onmouseover='MouseOnList(this)' onmouseout = 'MouseOutList(this)';>Hong Kong</td></tr>
+			<tr><td id='city' onmouseover='MouseOnList(this)' onmouseout = 'MouseOutList(this)';>Kota Kinabalu</td></tr>
+			<tr><td id='city' onmouseover='MouseOnList(this)' onmouseout = 'MouseOutList(this)';>Dubai</td></tr>
+			<tr><td id='city' onmouseover='MouseOnList(this)' onmouseout = 'MouseOutList(this)';>Macau</td></tr>
+			<tr><td id='city' onmouseover='MouseOnList(this)' onmouseout = 'MouseOutList(this)';>Kuala Lumpur</td></tr>
+		</table>
+		<h2>Shanghai</h2>
+		<h4>Tourlist Spot</h4><br>
+		<img class='spot' src='동방명주.jpeg' onmouseover='OnMouseInSpot(this , 0)' onmouseout='OnMouseOutSpot(this, 0)'>
+		<img class='spot' src='루쉰 공원.jpeg' onmouseover='OnMouseInSpot(this , 1)' onmouseout='OnMouseOutSpot(this, 1)'>
+		<img class='spot' src='상하이 디즈니 랜드.jpeg' onmouseover='OnMouseInSpot(this , 2)' onmouseout='OnMouseOutSpot(this, 2)'>
+		<img class='spot' src='상하이 임시 정부.jpeg' onmouseover='OnMouseInSpot(this , 3)' onmouseout='OnMouseOutSpot(this, 3)'>
+		<img class='spot' src='상하이 타워.jpeg' onmouseover='OnMouseInSpot(this , 4)' onmouseout='OnMouseOutSpot(this, 4)'>
+		<img class='spot' src='와이탄.jpeg' onmouseover='OnMouseInSpot(this , 5)' onmouseout='OnMouseOutSpot(this, 5)'>
+		<div id='special'>
+			<input type='button' value='X' style='float : right'
+				onclick="document.getElementById('special').style.visibility = 'hidden'" />
+			<p id='timer'></p>
+			<script>
+				function datesUntilNewYear() {
+					var now = new Date();
+					var newYear = new Date('December 20, ' + now.getFullYear());
+					var diff = newYear - now;
+					var milliseconds = Math.floor(diff % 1000);
+					diff = diff / 1000;
+					var seconds = Math.floor(diff % 60);
+					diff = diff / 60;
+					var minutes = Math.floor(diff % 60);
+					diff = diff / 60;
+					var hours = Math.floor(diff % 24);
+					diff = diff / 24;
+					var days = Math.floor(diff);
+					
+					var outStr = '&nbsp;할인 종료까지 ' + days +'일 '+ hours + '시간 ' + minutes +'분 ' + seconds + '초 남았습니다.';
+					document.getElementById('timer').innerHTML = outStr;
+		
+					setTimeout('datesUntilNewYear()',1000);
+				}
+	
+				datesUntilNewYear();
+			</script>
+			<h3 id='flash'>&nbsp;Last Minute Cheap Flights</h3>
+			<br><p style='font-size : 25px; font-weight : bold; background-color : white; margin-left : 10px; display : inline;'>ICN > PVG</p>
+			<p style='font-size : 55px; font-weight : bold; background-color : white; margin-left : 10px; display : inline;'>&nbsp;$125~ </p>
+			<br><input type='button' style='margin-left : 230px; margin-top : 15px;' onclick="window.open('https://www.skyscanner.net/flights-from/csha/cheap-flights-from-shanghai.html')" value='구매하기'>
+		</div>
+		<a href='mailto:qkrrhdms00@gmail.com?subject=Feedback'>Contact Us</a>
+	</body>
+</html>
